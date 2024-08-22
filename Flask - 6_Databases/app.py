@@ -11,7 +11,7 @@ def get_connection():
 @app.route('/')
 def index():
     conexao = get_connection()
-    lista = conexao.execute("SELECT id, email FROM users").fetchall()
+    lista = conexao.execute("SELECT * FROM users").fetchall()
     return render_template('pages/index.html', users=lista)
 
 @app.route('/create', methods=['POST', 'GET'])
