@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {{ bootstrap.load_css() }}
+
+    <style>
+        body {
+            height: 100vh;
+        }
+        .container, .row {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 align-self-center">
+                <h1>Login Page</h1> 
+                <form action="#" class="form">
+                    <div class="mb-3">
+                        <label for=""></label>
+                        <input class="form-control" type="text" name="login" placeholder="Login">
+                    </div>
+                    <div class="mb-3">
+                        <label for=""></label>
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {{ bootstrap.load_js() }}
+</body>
+</html>

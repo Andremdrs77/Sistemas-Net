@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <div id="div">
+        <h1>Olá!</h1><br>
+        <form class="form" action="{{ url_for('dashboard') }}" method="POST">
+            <input class="email" type="email" name="email" placeholder="E-mail">
+            <input class="senha" type="password" name="senha" placeholder="Senha">
+            <button class="button">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

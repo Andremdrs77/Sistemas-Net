@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de resultados</title>
+</head>
+<body>
+    <h2><a href="{{url_for('login')}}">Voltar para login</a></h2>
+
+    <h2>Bem vindo, {{usuario}}!</h2>
+    <form action="{{ url_for('formulario') }}" method="GET">
+        <input type="text" name="tempo" placeholder="Insira seu tempo" required>
+        <input type="text" name="distancia" required placeholder="Insira sua distância">
+        <input type="submit" value="Enviar Resultado">
+    </form>
+
+    <h2>Resultados de {{usuario}}:</h2>
+    {% for resultado in resultados_usuario%}
+        <p>Distância: {{resultado['distancia'] }}; Tempo: {{resultado['tempo']}}</p>
+    {% endfor %}
+
+</body>
+</html>
