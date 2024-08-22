@@ -10,7 +10,9 @@ def get_connection():
 
 @app.route('/')
 def index():
-    return render_template('pages/index.html')
+    conexao = get_connection()
+    lista = conexao.execute("SELECT id, email FROM users").fetchall()
+    return render_template('pages/index.html', users=lista)
 
 @app.route('/create', methods=['POST', 'GET'])
 def create():
@@ -18,7 +20,7 @@ def create():
         email = request.form['email']
         senha = request.form['password']
         conexao = get_connection()
-        SQL=f"INSERT INTO users (email, senha) VALUES ({email},{senha})"
+        SQL=f"INSERT INTO users (email, senha) VALUES ('{email}','{senha}')"
         conexao.execute(SQL)
         conexao.commit()
         conexao.close()
