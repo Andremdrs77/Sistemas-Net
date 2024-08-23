@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'romerito'
 app.config['MYSQL_DB'] = 'users'
-# retornar os dados como discionários
+# retornar os dados como dicionários
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
