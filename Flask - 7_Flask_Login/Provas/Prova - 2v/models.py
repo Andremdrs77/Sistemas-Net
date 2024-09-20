@@ -16,6 +16,7 @@ class User(UserMixin):
         self.email = email
         self.senha = senha
 
+
     @classmethod
     def get(cls, id):
         conexao = obter_conexao()
@@ -28,6 +29,8 @@ class User(UserMixin):
             return user
         else:
             return None
+        
+
     @classmethod 
     def get_by_mat(cls, matricula):
 
@@ -35,7 +38,7 @@ class User(UserMixin):
         SELECT = 'SELECT * FROM users WHERE matricula=?'
         dados = conexao.execute(SELECT, (matricula,)).fetchone()
         if dados != None:
-            user = User(dados['matricula'],dados['email'], dados['senha'])
+            user = User(dados['matricula'], dados['email'], dados['senha'])
             user.id = dados['id']
             return user
         else:
@@ -52,6 +55,7 @@ class User(UserMixin):
         conexao.execute(INSERT,  (matricula, hash_email, hash_senha))
         conexao.commit()
         conexao.close()
+
 
     @classmethod
     def insert_exercicios(cls, nome, comentario, usuario):

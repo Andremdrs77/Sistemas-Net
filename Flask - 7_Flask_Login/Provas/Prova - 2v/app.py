@@ -1,15 +1,13 @@
-from flask import Flask, render_template, url_for,request,redirect
-
-from flask_login import LoginManager, login_required,login_user, logout_user, current_user
-
+from flask import Flask, render_template, url_for, request,redirect
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from werkzeug.security import check_password_hash
-
 from models import User, obter_conexao
 
 login_manager = LoginManager()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SUPERDIFICIL'
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -19,6 +17,7 @@ def load_user(user_id):
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/login',methods=['POST','GET'])
 def login():
@@ -36,6 +35,7 @@ def login():
         else:
             return redirect(url_for('login'))
     return render_template('login.html')
+
 
 @app.route('/registro', methods=['GET','POST'])
 def registro():
