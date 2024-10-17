@@ -1,4 +1,4 @@
-from database import get_connection
+from ..database import get_connection
 
 class User:
     def __init__(self, email, nome):
