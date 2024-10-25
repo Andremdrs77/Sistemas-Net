@@ -16,7 +16,7 @@ def register():
         if not email:
             flash('Email é obrigatório')
         else:
-            user = User(email, nome)
+            user = User(nome, email)
             user.save()
             return redirect(url_for('users.index'))
     

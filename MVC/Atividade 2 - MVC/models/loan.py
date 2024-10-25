@@ -14,10 +14,8 @@ class Loan:
         conn.commit()
         conn.close()
         return True
-
+    
     @classmethod
     def all(cls):
         conn = get_connection()
-        loans = conn.execute("SELECT * FROM loans").fetchall()
-        return loans
-    
+        loans = conn.execute("SELECT ")

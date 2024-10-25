@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS loans (
     data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
     data_devolucao DATE NOT NULL,
     user_id INTEGER NOT NULL,
-    book_id INTEGER NOT NULL
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    book_id INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(book_id) REFERENCES books(id)
 );
