@@ -17,3 +17,10 @@ class Book:
         conn = get_connection()
         books = conn.execute("SELECT * FROM books").fetchall()
         return books
+    
+    @classmethod
+    def available(cls):
+        conn = get_connection()
+        books = conn.execute("SELECT * FROM books WHERE disponivel = 1").fetchall()
+        conn.close()
+        return books

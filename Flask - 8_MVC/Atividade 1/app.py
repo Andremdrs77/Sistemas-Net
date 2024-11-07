@@ -1,7 +1,9 @@
 from flask import Flask
 from controllers import users, books, loans
+import os
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
 app.register_blueprint(users.bp)
 app.register_blueprint(books.bp)

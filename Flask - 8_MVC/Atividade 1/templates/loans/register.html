@@ -14,7 +14,7 @@
         <form action="{{url_for('loans.register')}}" method="post">
             <select name="book">
                 {% for book in books %}
-                    <option value="{{book.id}}">{{book.nome}}</option>    
+                    <option value="{{book.id}}">{{book.titulo}}</option>    
                 {% endfor %}       
             </select>   
 

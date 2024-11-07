@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
     user_id INTEGER NOT NULL,
+    disponivel BOOLEAN NOT NULL DEFAULT 1,
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE IF NOT EXISTS loans (
     data_devolucao DATE NOT NULL,
     user_id INTEGER NOT NULL,
     book_id INTEGER NOT NULL,
+    devolvido BOOLEAN NOT NULL DEFAULT 0,
     FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(book_id) REFERENCES books(id)
 );
