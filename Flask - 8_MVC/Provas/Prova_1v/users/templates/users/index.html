@@ -9,14 +9,8 @@
 
     <h1>Lista de Usuários</h1>
 
-    <form action="" method="POST">
-        <button>
-            Enviar
-        </button>
-    </form>
-
-
     <a href="{{url_for('users.register')}}">Adicionar</a>
+    <br/>
     <a href="{{url_for('auth.logout')}}">Log-out</a>
     <hr>
     {% for user in users %}

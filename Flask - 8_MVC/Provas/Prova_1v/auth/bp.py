@@ -17,25 +17,15 @@ def login():
         nome = request.form['nome']
         email = request.form['email']
 
-        user = User(nome, email)
-        user.find()
+        user = User.find(email=email)
 
         if user:
             login_user(user)
 
             return redirect(url_for('users.index'))
         else:
-            return render_template('auth/login.html')
+            return render_template('auth/login.html') + '<br/><h3 style= "color: red">Usuário não encontrado</h3>'
     return render_template('auth/login.html')
-
-    # if request.method == 'POST':
-        
-    #     nome = request.form['nome']
-    #     email = request.form['email']
-
-    #     return redirect(url_for('users.index'))
-
-    # return render_template('auth/login.html')
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
@@ -51,8 +41,7 @@ def register():
     return render_template('auth/register.html')
 
 @auth_bp.route('/logout')
-@login_required
 def logout():
    # usa o método do Flask-Login para limpar a sessão do usuário.
    logout_user()
-   return redirect(url_for('index'))
+   return redirect(url_for('auth.login'))
