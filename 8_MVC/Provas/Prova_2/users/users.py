@@ -1,10 +1,12 @@
 from flask import render_template, Blueprint, url_for, request, flash, redirect
 from users.models import User
+from flask_login import login_required
 
 # módulo de usuários
 bp = Blueprint('users', __name__, url_prefix='/users', template_folder='templates')
 
 @bp.route('/')
+@login_required
 def index():
     return render_template('users/index.html', users = User.all())
 

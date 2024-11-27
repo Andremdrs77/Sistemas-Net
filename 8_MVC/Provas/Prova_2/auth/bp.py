@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from flask_login import LoginManager, login_required, logout_user, login_user
+from flask_login import LoginManager, logout_user, login_user
 from users.models import User 
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth', template_folder='templates')
@@ -14,7 +14,6 @@ def load_user(user_id):
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        nome = request.form['nome']
         email = request.form['email']
 
         user = User.find(email=email)

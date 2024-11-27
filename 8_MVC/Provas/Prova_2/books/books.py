@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, request, Blueprint, redirect
+from flask import render_template, url_for, request, Blueprint, redirect
 from books.models import Book
 from users.models import User
-from flask_login import LoginManager, login_required
+from flask_login import login_required
 
 bp = Blueprint('books', __name__, url_prefix='/books', template_folder='templates')
 
