@@ -12,7 +12,7 @@
     </form>
     {% if users %}
         {% for user in users %}
-            <p>{{ user.nome }}</p>
+            <p>{{ user.nome }} <a href="{{url_for('edit', id=user.id)}}">Editar</a> <a href="{{url_for('remove', id=user.id)}}">Remover</a></p>
         {% endfor %}
     {% else %}
         <p>Nenhum usuário cadastrado</p>
