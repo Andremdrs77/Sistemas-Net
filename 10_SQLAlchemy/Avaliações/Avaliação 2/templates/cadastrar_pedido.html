@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Pedido</title>
+</head>
+<body>
+    <h1>Registrar Pedido</h1>
+    <form method="POST" action="/cadastrar-pedido">
+        <label for="cliente_id">Cliente ID:</label>
+        <input type="number" name="cliente_id" id="cliente_id" required><br>
+        <label for="produtos">Produtos (ID:Quantidade):</label>
+        <input type="text" name="produtos" id="produtos" required><br>
+        <button type="submit">Registrar</button>
+    </form>
+    <a href="/">Voltar à Página Inicial</a>
+</body>
+</html>

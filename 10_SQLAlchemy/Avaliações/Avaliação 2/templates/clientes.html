@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Clientes Cadastrados</h1>
+    <ul>
+        {% for cliente in clientes %}
+        <li>ID: {{ cliente.id }}, Nome: {{ cliente.nome }}, RG: {{ cliente.rg }}, Telefone: {{ cliente.telefone }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar à Página Inicial</a>
+</body>
+</html>
